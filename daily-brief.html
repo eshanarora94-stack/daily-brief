@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Brief — May 16, 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #0f1117;
+      --surface:     #1a1d27;
+      --border:      #2a2d3a;
+      --accent-blue: #4f8ef7;
+      --accent-teal: #3ecfcf;
+      --accent-amber:#f0a429;
+      --accent-red:  #e05252;
+      --text-primary:#e8eaf0;
+      --text-muted:  #8891a8;
+      --tag-bg:      #252838;
+      --radius:      8px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #fff;
+    }
+    header h1 span { color: var(--accent-blue); }
+    .subhead {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 0.35rem;
+    }
+
+    /* ── Table of Contents ── */
+    nav.toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    nav.toc h2 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+    nav.toc ol {
+      padding-left: 1.25rem;
+    }
+    nav.toc li {
+      margin: 0.3rem 0;
+    }
+    nav.toc a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    nav.toc a:hover { text-decoration: underline; }
+
+    /* ── Sections ── */
+    section {
+      margin-bottom: 3rem;
+    }
+    section h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    section#compliance h2  { border-color: var(--accent-blue); color: var(--accent-blue); }
+    section#cybersecurity h2{ border-color: var(--accent-red);  color: var(--accent-red);  }
+    section#tech h2        { border-color: var(--accent-teal); color: var(--accent-teal); }
+
+    /* ── News Items ── */
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .item-headline {
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 0.45rem;
+    }
+    .item-headline a {
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    .item-headline a:hover { color: var(--accent-blue); text-decoration: underline; }
+    .item-digest {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 0.55rem;
+    }
+    .item-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: var(--accent-amber);
+    }
+    .tag.red   { color: var(--accent-red); }
+    .tag.blue  { color: var(--accent-blue); }
+    .tag.teal  { color: var(--accent-teal); }
+    .tag.muted { color: var(--text-muted); }
+    .source {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      margin-top: 2rem;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+    footer strong {
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    footer ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+    }
+    footer ul li::before { content: "· "; }
+
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.75rem 3rem; }
+      header h1 { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header>
+    <h1>Daily <span>Brief</span></h1>
+    <p class="subhead">Saturday, May 16, 2026 &nbsp;·&nbsp; 15 items &nbsp;·&nbsp; Auto-generated daily at 6:30 AM ET</p>
+  </header>
+
+  <!-- ── Table of Contents ── -->
+  <nav class="toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#compliance">Compliance &amp; Regulation — 6 items</a></li>
+      <li><a href="#cybersecurity">Cybersecurity &amp; Threats — 5 items</a></li>
+      <li><a href="#tech">Tech &amp; AI — 4 items</a></li>
+    </ol>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 1 — COMPLIANCE & REGULATION
+  ══════════════════════════════════════════ -->
+  <section id="compliance">
+    <h2>Compliance &amp; Regulation</h2>
+
+    <!-- Item 1 -->
+    <article class="item">
+      <p class="item-headline">
+        <a href="https://www.securitiesdocket.com/2026/04/28/the-secs-new-sox-group-potential-impacts-for-audit-firms-their-professionals-and-future-pcaob-enforcement-king-spalding/"
+           target="_blank" rel="noopener">
+          SEC Launches Dedicated SOX Enforcement Group, Assumes Expanded Role in Audit-Firm Oversight
+        </a>
+      </p>
+      <p class="item-digest">
+        On March 31, 2026, the SEC stood up a new group specifically targeting audit-firm misconduct under Sarbanes-Oxley, signaling materially heightened scrutiny alongside—but not replacing—PCAOB enforcement. The move coincides with the December 15, 2026 effective date for PCAOB QC 1000, AS 2101, and AS 2201 revisions that tighten integrated-audit scoping; issuers should expect more rigorous ITGC and risk-assessment requests during upcoming walkthroughs.
+      </p>
+      <div class="item-meta">
+        <span class="tag">SOX / PCAOB</span>
+        <span class="tag blue">SEC Enforcement</span>
+        <span class="source">securitiesdocket.com</span>
+      </div>
+    </article>
+
+    <!-- Item 2 -->
+    <article class="item">
+      <p class="item-headline">
+        <a href="https://www.bakerlaw.com/insights/ready-or-not-cmmc-is-here-dod-issues-final-rule-establishing-contract-clauses-implementing-cmmc-program/"
+           target="_blank" rel="noopener">
+          CMMC Phase 1 Enforcement Underway — DoD Directing Contract-Level Clause Insertions
+        </a>
+      </p>
+      <p class="item-digest">
+        Phase 1 of CMMC (effective November 10, 2025) is now in active deployment: the CMMC Program Office is directing DoD component contracting officers to insert program clauses into select new solicitations, making self-attestation at Level 1 or Level 2 a contract condition. Full Level 2 third-party assessment requirements go live November 2026. Defense-supply-chain firms that have not yet mapped their SPRS scores and SP 800-171 plans should treat October 2026 as a hard deadline.
+      </p>
+      <div class="item-meta">
+        <span class="tag">CMMC</span>
+        <span class="source">bakerlaw.com</span>
+      </div>
+    </article>
+
+    <!-- Item 3 -->
+    <article class="item">
+      <p class="item-headline">
+        <a href="https://www.infosecurity-magazine.com/news/faa-gaps-aircraft-cybersecurity/"
+           target="_blank" rel="noopener">
+          FAA Aircraft Cybersecurity Final Rule on Track — Cyber Assessments to Become Type-Certification Requirement
+        </a>
+      </p>
+      <p class="item-digest">
+        The FAA's proposed rule (NPRM published August 2024) to require cybersecurity threat identification, protection, and validation as a standard element of type-certification approval for new transport-category aircraft, engines, and propellers is advancing toward a final rule in 2026. The rule introduces Instructions for Continued Airworthiness (ICA) so that cyber protections persist through the aircraft's operational life—a first-of-kind airworthiness obligation that supply-chain OEMs and MRO operators will need to integrate into their AS9100/IA9100 QMS.
+      </p>
+      <div class="item-meta">
+        <span class="tag">Aerospace QMS</span>
+        <span class="tag muted">FAA Rulemaking</span>
+        <span class="source">infosecurity-magazine.com</span>
+      </div>
+    </article>
+
+    <!-- Item 4 -->
+    <article class="item">
+      <p class="item-headline">
+        <a href="https://kensai.app/blog/security-regulations-news-nis2-dora-ai-act.html"
+           target="_blank" rel="noopener">
+          EU NIS2 Enforcement Has Begun — First Administrative Penalties Issued in Germany, France, and Netherlands
+        </a>
+      </p>
+      <p class="item-digest">
+        EU member-state regulators issued the first NIS2 administrative fines in Q1 2026 and active inspections are now underway in three major markets. Separately, DORA supervisors have shifted to "show-me-proof" mode: firms under the January 2025 application date must now produce structured, audit-ready evidence—RoI submissions, ICT third-party oversight logs, and resilience-testing results. Full NIS2 operational compliance is expected by October 2026; non-compliance carries fines up to €10 M or 2% of global turnover.
+      </p>
+      <div class="item-meta">
+        <span class="tag">EU NIS2 / DORA</span>
+        <span class="source">kensai.app</span>
+      </div>
+    </article>
+
+    <!-- Item 5 -->
+    <article class="item">
+      <p class="item-headline">
+        <a href="https://www.multistate.us/insider/2026/2/4/all-of-the-comprehensive-privacy-laws-that-take-effect-in-2026"
+           target="_blank" rel="noopener">
+          Twenty U.S. State Privacy Laws Now Active; Enforcement Intensity Rising Through 2026
+        </a>
+      </p>
+      <p class="item-digest">
+        Indiana, Kentucky, and Rhode Island joined the roster of states with comprehensive privacy laws on January 1, 2026, bringing the total to 20. State AGs are increasing enforcement capacity, with Rhode Island offering no cure period and penalties up to $10,000 per violation. Privacy and GRC teams should audit consent-management platforms, data-broker relationships, and universal opt-out mechanisms for coverage gaps, particularly as CCPA enforcement in California continues to mature following last year's record $1.55 M settlement.
+      </p>
+      <div class="item-meta">
+        <span class="tag">State Privacy</span>
+        <span class="source">multistate.us</span>
+      </div>
+    </article>
+
+    <!-- Item 6 -->
+    <article class="item">
+      <p class="item-headline">
+        <a href="https://www.nist.gov/news-events/news/2025/12/draft-nist-guidelines-rethink-cybersecurity-ai-era"
+           target="_blank" rel="noopener">
+          NIST Releases Draft Cyber AI Profile (IR 8596) — CSF 2.0 Extended to AI-Specific Risks
+        </a>
+      </p>
+      <p class="item-digest">
+        NIST published its preliminary draft Cybersecurity Framework Profile for Artificial Intelligence (NIST IR 8596), a voluntary overlay on CSF 2.0 that addresses cyber risks introduced by AI systems, including adversarial model manipulation, data-pipeline integrity, and AI supply-chain threats. Spring 2026 virtual working sessions for the AI Profile are ongoing; the CSF 2.0 Informative References Quick-Start Guide public-comment window closed May 6. Organizations adopting AI should map the new profile to existing Govern and Identify function controls.
+      </p>
+      <div class="item-meta">
+        <span class="tag">Framework</span>
+        <span class="tag blue">NIST CSF 2.0</span>
+        <span class="source">nist.gov</span>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 2 — CYBERSECURITY & THREATS
+  ══════════════════════════════════════════ -->
+  <section id="cybersecurity">
+    <h2>Cybersecurity &amp; Threats</h2>
+
+    <!-- Item 7 -->
+    <article class="item">
+      <p class="item-headline">
+        <a href="https://thehackernews.com/2026/05/cisa-adds-cisco-sd-wan-cve-2026-20182.html"
+           target="_blank" rel="noopener">
+          CISA Adds Cisco SD-WAN Auth-Bypass CVE-2026-20182 (CVSS 10.0) to KEV — Federal Deadline May 17
+        </a>
+      </p>
+      <p class="item-digest">
+        CISA added CVE-2026-20182, a maximum-severity authentication-bypass in Cisco Catalyst SD-WAN Controller and Manager, to its KEV catalog on May 14 with a federal remediation deadline of May 17. Cisco Talos attributes active exploitation to UAT-8616, a sophisticated threat actor using PoC-derived web shells to gain persistent admin access, execute arbitrary bash commands, and modify SD-WAN fabric configurations across the network. Any organization running internet-facing SD-WAN Manager instances must patch or isolate immediately.
+      </p>
+      <div class="item-meta">
+        <span class="tag red">CVSS 10.0</span>
+        <span class="tag red">KEV — Active Exploitation</span>
+        <span class="source">thehackernews.com</span>
+      </div>
+    </article>
+
+    <!-- Item 8 -->
+    <article class="item">
+      <p class="item-headline">
+        <a href="https://thehackernews.com/2026/05/instructure-reaches-ransom-agreement.html"
+           target="_blank" rel="noopener">
+          ShinyHunters Breaches Canvas LMS Twice — 275 Million Users Exposed, Instructure Pays Ransom
+        </a>
+      </p>
+      <p class="item-digest">
+        ShinyHunters exploited a Free-For-Teacher account flaw to steal 3.65 TB of data from Instructure's Canvas LMS, impacting approximately 275 million users across 8,800+ institutions globally. After a second intrusion on May 7 replaced Canvas login pages with a ransom demand, Instructure confirmed payment and received "shred-log confirmation" of data destruction. The breach is being called the largest educational data incident on record; exposed data included names, email addresses, and student–teacher message threads—no passwords or financial data were confirmed stolen.
+      </p>
+      <div class="item-meta">
+        <span class="tag red">Breach</span>
+        <span class="tag red">Ransomware</span>
+        <span class="source">thehackernews.com</span>
+      </div>
+    </article>
+
+    <!-- Item 9 -->
+    <article class="item">
+      <p class="item-headline">
+        <a href="https://techcrunch.com/2026/05/13/ransomware-hackers-claim-breach-at-foxconn-a-major-electronics-manufacturer-for-apple-google-and-nvidia/"
+           target="_blank" rel="noopener">
+          Nitrogen Ransomware Hits Foxconn North American Facilities — 11 Million Files Claimed Stolen
+        </a>
+      </p>
+      <p class="item-digest">
+        Foxconn confirmed a ransomware-driven network outage that began May 1 at its Mount Pleasant, Wisconsin facility, with Nitrogen claiming to have exfiltrated 8 TB (11 million files) including confidential project data attributed to Apple, Nvidia, Google, Dell, and Intel. Affected factories are reportedly resuming production, though Foxconn has not confirmed whether any customer IP was actually taken. Nitrogen is a double-extortion group believed to derive from the leaked Conti 2 builder, underscoring continued third-party manufacturing risk to tier-1 technology firms.
+      </p>
+      <div class="item-meta">
+        <span class="tag red">Breach</span>
+        <span class="tag red">Ransomware</span>
+        <span class="source">techcrunch.com</span>
+      </div>
+    </article>
+
+    <!-- Item 10 -->
+    <article class="item">
+      <p class="item-headline">
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a"
+           target="_blank" rel="noopener">
+          CISA/FBI Joint Advisory: Iranian CyberAv3ngers Actively Disrupting U.S. Water, Energy, and Government PLCs
+        </a>
+      </p>
+      <p class="item-digest">
+        A six-agency advisory (CISA, FBI, EPA, DOE, NERC, WaterISAC) warns that IRGC-affiliated CyberAv3ngers have been exploiting an authentication-bypass in Rockwell Automation Studio 5000 Logix controllers (CVE-2021-22681) since at least March 2026, manipulating SCADA/HMI displays and causing operational disruptions at water treatment, energy generation, and government facilities. NERC confirmed it is "actively monitoring the grid." OT defenders should verify PLC firmware, isolate engineering workstations, and audit remote-access controls to Logix devices immediately.
+      </p>
+      <div class="item-meta">
+        <span class="tag red">OT / ICS</span>
+        <span class="tag red">Critical Infrastructure</span>
+        <span class="source">cisa.gov</span>
+      </div>
+    </article>
+
+    <!-- Item 11 -->
+    <article class="item">
+      <p class="item-headline">
+        <a href="https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html"
+           target="_blank" rel="noopener">
+          CISA Adds Linux Kernel Zero-Day CVE-2026-31431 to KEV — Root-Access Exploit Active in the Wild
+        </a>
+      </p>
+      <p class="item-digest">
+        CISA added CVE-2026-31431, a Linux kernel privilege-escalation zero-day dubbed "Copy Fail," to the KEV catalog on May 1 with a federal deadline of May 15 (now past). The flaw allows a local or container-escape attacker to obtain root via an incorrect resource-transfer bug. Most major Linux distributions have issued patches; cloud and container-platform operators should confirm kernel patch levels across VM and node fleets, as exploitation was confirmed before a patch was widely available.
+      </p>
+      <div class="item-meta">
+        <span class="tag red">Zero-day</span>
+        <span class="tag red">KEV — Active Exploitation</span>
+        <span class="source">thehackernews.com</span>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 3 — TECH & AI
+  ══════════════════════════════════════════ -->
+  <section id="tech">
+    <h2>Tech &amp; AI</h2>
+
+    <!-- Item 12 -->
+    <article class="item">
+      <p class="item-headline">
+        <a href="https://www.anthropic.com/news/claude-opus-4-7"
+           target="_blank" rel="noopener">
+          Anthropic Releases Claude Opus 4.7 — Stronger Coding, Higher-Resolution Vision, Built-in Cyber Safeguards
+        </a>
+      </p>
+      <p class="item-digest">
+        Claude Opus 4.7 is generally available across the Anthropic API, Amazon Bedrock, Google Vertex AI, and Microsoft Foundry at $5/$25 per million tokens in/out. Key improvements include substantially harder software-engineering tasks, enhanced vision resolution, and a new "xhigh" reasoning-effort level. Notably, the model ships with safeguards that automatically detect and block high-risk cybersecurity use cases; legitimate security practitioners can apply for Anthropic's Cyber Verification Program to lift those limits.
+      </p>
+      <div class="item-meta">
+        <span class="tag teal">Model Release</span>
+        <span class="source">anthropic.com</span>
+      </div>
+    </article>
+
+    <!-- Item 13 -->
+    <article class="item">
+      <p class="item-headline">
+        <a href="https://www.cnn.com/2026/05/05/tech/microsoft-google-xai-government-test-ai-models"
+           target="_blank" rel="noopener">
+          Microsoft, Google, and xAI Agree to NIST Pre-Release AI Model Reviews — Safety Testing Before Launch
+        </a>
+      </p>
+      <p class="item-digest">
+        NIST's Center for AI Standards and Innovation (CAISI) announced on May 5 that Google, Microsoft, and xAI will provide unreleased frontier models for government evaluation of national security and public-safety risks before deployment. The agreements extend the review pipeline established by OpenAI and Anthropic in 2024 and were partly accelerated by concerns over Anthropic's unreleased Mythos model. CAISI has completed more than 40 AI model evaluations to date; the program represents the most concrete AI pre-launch oversight mechanism in the U.S. to date.
+      </p>
+      <div class="item-meta">
+        <span class="tag teal">Policy</span>
+        <span class="tag teal">AI Governance</span>
+        <span class="source">cnn.com</span>
+      </div>
+    </article>
+
+    <!-- Item 14 -->
+    <article class="item">
+      <p class="item-headline">
+        <a href="https://www.cnbc.com/2026/05/11/openai-eu-cyber-model-anthropic-mythos-gpt.html"
+           target="_blank" rel="noopener">
+          OpenAI Offers EU Vetted Security Teams Limited Preview of GPT-5.5-Cyber While Anthropic Holds Mythos
+        </a>
+      </p>
+      <p class="item-digest">
+        OpenAI announced a limited EU preview of GPT-5.5-Cyber, a variant of its latest model fine-tuned for cybersecurity workflows, available to vetted security teams under controlled access. Meanwhile, Anthropic's more powerful "Mythos" model remains unreleased; Anthropic's decision not to share Mythos with EU authorities has drawn regulatory attention and is a key driver behind the expanded NIST pre-release review program. The divergence illustrates the emerging tension between competitive AI deployment timelines and government safety-review expectations.
+      </p>
+      <div class="item-meta">
+        <span class="tag teal">Policy</span>
+        <span class="tag teal">Model Preview</span>
+        <span class="source">cnbc.com</span>
+      </div>
+    </article>
+
+    <!-- Item 15 -->
+    <article class="item">
+      <p class="item-headline">
+        <a href="https://www.cnbc.com/2026/05/12/google-races-put-gemini-at-center-of-android-before-apples-ai-reboot.html"
+           target="_blank" rel="noopener">
+          Google Rebuilds Android Core Around Gemini Intelligence, Racing Apple's AI Platform Overhaul
+        </a>
+      </p>
+      <p class="item-digest">
+        Google confirmed it is refactoring key Android subsystems to position Gemini Intelligence as the primary cross-app orchestration layer, enabling on-device agents to navigate between services, understand screen context, and complete multi-step tasks. The rebuild is a direct response to Apple's forthcoming AI-native iOS reboot expected later this year. For enterprise IT teams, the shift signals imminent changes to mobile-endpoint management and data-loss prevention policies, as AI agents with broader app permissions become standard on both major mobile platforms.
+      </p>
+      <div class="item-meta">
+        <span class="tag teal">Platform</span>
+        <span class="tag teal">AI Agents</span>
+        <span class="source">cnbc.com</span>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <strong>Primary sources monitored</strong>
+    <ul>
+      <li>CISA.gov</li>
+      <li>SEC.gov</li>
+      <li>PCAOB.org</li>
+      <li>NIST CSRC</li>
+      <li>FAA.gov</li>
+      <li>Federal Register</li>
+      <li>The Hacker News</li>
+      <li>BleepingComputer</li>
+      <li>Krebs on Security</li>
+      <li>Dark Reading</li>
+      <li>SecurityWeek</li>
+      <li>Cybersecurity Dive</li>
+      <li>The Record</li>
+      <li>Industrial Cyber</li>
+      <li>Dragos</li>
+      <li>Ars Technica</li>
+      <li>CNBC Tech</li>
+      <li>TechCrunch</li>
+      <li>The Register</li>
+      <li>tldr.tech</li>
+    </ul>
+  </footer>
+
+</body>
+</html>
