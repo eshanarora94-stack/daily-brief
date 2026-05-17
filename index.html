@@ -25,7 +25,7 @@ body {
 header {
   border-bottom: 1px solid #e5e3da;
   padding-bottom: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 .eyebrow {
   font-size: 11px;
@@ -64,6 +64,27 @@ h1 {
   transition: background 0.15s, border 0.15s;
 }
 .toc a:hover { background: #f0ede0; border-color: #d4cfa8; }
+.view-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e3da;
+}
+.toggle-btn {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 6px;
+  border: 1px solid #e5e3da;
+  background: #fff;
+  color: #555;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.toggle-btn:hover { background: #f0ede0; border-color: #d4cfa8; }
+.toggle-btn.active { background: #6b5d1f; color: #fff; border-color: #6b5d1f; }
 section { margin-bottom: 28px; }
 h2 {
   font-size: 13px;
@@ -132,6 +153,18 @@ h2 {
   margin: 0;
 }
 .item-digest a { color: inherit; }
+.grc-unavailable {
+  padding: 28px 24px;
+  background: #fff;
+  border: 1px solid #e5e3da;
+  border-radius: 8px;
+  text-align: center;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+.grc-unavailable strong { color: #1a1a1a; }
 footer {
   margin-top: 32px;
   padding-top: 16px;
@@ -148,7 +181,7 @@ footer a { color: #6b5d1f; }
   <header>
     <div class="eyebrow">Daily Brief</div>
     <h1>Cybersecurity, Compliance &amp; Tech</h1>
-    <p class="subhead">Saturday, May 16, 2026 &middot; 15 items &middot; Auto-generated daily at 6:30 AM ET</p>
+    <p class="subhead">Sunday, May 17, 2026 &middot; 15 items &middot; Auto-generated daily at 6:30 AM ET</p>
     <nav class="toc">
       <a href="#sec-compliance">Compliance &amp; Regulation</a>
       <a href="#sec-cyber">Cybersecurity &amp; Threats</a>
@@ -156,115 +189,142 @@ footer a { color: #6b5d1f; }
     </nav>
   </header>
 
-  <section id="sec-compliance">
-    <h2>Compliance &amp; Regulation <span class="section-count">6 items &middot; CMMC · SOX/PCAOB · NIS2 · FAA · Privacy · CRA</span></h2>
-    <div class="section-line"></div>
+  <nav class="view-toggle">
+    <button class="toggle-btn active" onclick="switchView('brief')">Daily Brief</button>
+    <button class="toggle-btn" onclick="switchView('grc')">GRC Dashboard</button>
+  </nav>
 
-    <div class="item">
-      <div class="item-meta"><span class="tag deadline">CMMC</span><span>vso-inc.com</span></div>
-      <p class="item-headline"><a href="https://vso-inc.com/cmmc-phase-2-defense-contractors-action-guide/" target="_blank" rel="noopener">CMMC Phase 2 C3PAO waitlists now projected to exceed 18 months — fewer than 600 certified assessors serving 80,000 contractors</a></p>
-      <p class="item-digest">With Phase 2 mandatory third-party certification taking effect November 10, 2026, and new-client assessment slots at authorized C3PAOs forecast to back up beyond 18 months by Q3 2026, the assessor capacity gap has become the dominant compliance risk for the defense industrial base — eclipsing the underlying NIST SP 800-171 technical implementation challenge. Contractors without a signed C3PAO engagement should treat booking a slot as their single highest-priority action this quarter.</p>
+  <div id="view-brief">
+
+    <section id="sec-compliance">
+      <h2>Compliance &amp; Regulation <span class="section-count">6 items &middot; CMMC &middot; SOX/PCAOB &middot; NIS2/DORA &middot; Privacy &middot; Framework &middot; CRA</span></h2>
+      <div class="section-line"></div>
+
+      <div class="item">
+        <div class="item-meta"><span class="tag deadline">CMMC</span><span>dodcio.defense.gov</span></div>
+        <p class="item-headline"><a href="https://dodcio.defense.gov/CMMC/" target="_blank" rel="noopener">CMMC Phase 2 takes effect November 10 — DFARS 252.204-7019 retired February 1; C3PAO assessor pipeline already at capacity</a></p>
+        <p class="item-digest">DoD formally retired DFARS 252.204-7019 on February 1, 2026 and consolidated contractor assessment obligations under DFARS 252.204-7021; Phase 2 begins November 10, requiring certified third-party C3PAO assessments for all Level 2 CUI contracts. With fewer than 100 authorized C3PAOs serving an estimated 80,000 Level 2 contractors, prime contractors without a signed assessment engagement are now managing queue risk, not simply compliance risk — securing a C3PAO slot should be treated as this quarter's single highest-priority action for any DIB organization handling CUI.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-meta"><span class="tag deadline">SOX / PCAOB</span><span>pcaobus.org</span></div>
+        <p class="item-headline"><a href="https://pcaobus.org/oversight/standards/qc-standards/details/qc-1000--a-firms-system-of-quality-control" target="_blank" rel="noopener">PCAOB QC 1000 December 15 deadline looms — risk-based quality control overhaul now includes mandatory direct reporting of findings to the Board</a></p>
+        <p class="item-digest">QC 1000 requires registered audit firms to design, implement, and operate a comprehensive risk-based system of quality control and — for the first time — report specified quality-control findings directly to the PCAOB, a data-collection and tracking obligation that requires new infrastructure investment. Audit committees whose external auditors have not presented a concrete QC 1000 implementation plan should escalate before Q3 board meetings; firms may elect early compliance now except for the PCAOB-reporting component, which activates at the December 15 effective date.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-meta"><span class="tag advisory">NIS2 / DORA</span><span>kensai.app</span></div>
+        <p class="item-headline"><a href="https://kensai.app/blog/security-regulations-news-nis2-dora-ai-act.html" target="_blank" rel="noopener">EU issues first NIS2 administrative penalties; DORA enters active supervision mode — Netherlands mandates entity self-assessments by June 2026</a></p>
+        <p class="item-digest">EU member states issued the first administrative fines under NIS2 in Q1 2026 (up to €10M or 2% of global annual turnover for non-compliant essential and important entities), with the Netherlands publishing guidance requiring all covered entities to complete a structured self-assessment by June 2026; DORA simultaneously moved from implementation to active supervision, with financial entities' Register of Information on ICT third-party dependencies due Q1 2026. Organizations that completed policies-only NIS2 or DORA compliance without operational incident-response testing and third-party monitoring are now in material enforcement risk.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-meta"><span class="tag advisory">Privacy</span><span>iapp.org</span></div>
+        <p class="item-headline"><a href="https://iapp.org/news/a/new-year-new-rules-us-state-privacy-requirements-coming-online-as-2026-begins" target="_blank" rel="noopener">20 U.S. state comprehensive privacy laws now in effect — Indiana, Kentucky, Rhode Island joined January 1; California's ADMT rules add AI decision-making obligations</a></p>
+        <p class="item-digest">Indiana, Kentucky, and Rhode Island joined the comprehensive privacy landscape on January 1, 2026, while California's long-delayed automated decision-making technology (ADMT) regulations and cybersecurity-audit requirements became applicable, requiring organizations to conduct and retain risk assessments for ADMTs used in consequential decisions. Organizations with national consumer-facing operations should prioritize opt-out mechanism testing and ADMT risk-assessment workflows; California's CPPA enforcement does not wait for formal rulemaking completion and state AGs across all 20 jurisdictions are actively coordinating on enforcement intelligence sharing.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-meta"><span class="tag advisory">Framework</span><span>industrialcyber.co</span></div>
+        <p class="item-headline"><a href="https://industrialcyber.co/nist/nist-releases-updated-csf-2-0-quick-start-guide-to-strengthen-cyber-erm-and-workforce-integration/" target="_blank" rel="noopener">NIST expands CSF 2.0 toolkit with two new Quick-Start Guides linking cyber risk, enterprise risk management, and workforce strategy</a></p>
+        <p class="item-digest">NIST's March 2026 additions include SP 1308, which integrates enterprise risk management and workforce planning with cybersecurity risk communication across all six CSF functions, and a draft Informative References Quick-Start Guide (comment period closed May 6) helping organizations navigate the expanded reference library aligned to the new Govern function. Organizations that implemented CSF 1.1 and have not yet mapped their program to CSF 2.0's Govern function risk a measurable governance gap as regulators and auditors increasingly reference CSF 2.0 as the program-assessment baseline.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-meta"><span class="tag deadline">EU CRA</span><span>cms-lawnow.com</span></div>
+        <p class="item-headline"><a href="https://cms-lawnow.com/en/ealerts/2026/02/strengthening-eu-cyber-resilience-an-overview-of-the-new-cybersecurity-package" target="_blank" rel="noopener">EU Cyber Resilience Act ENISA reporting obligations activate September 11, 2026 — manufacturers have roughly 117 days to wire up 24-hour disclosure workflows</a></p>
+        <p class="item-digest">The CRA's September 11 milestone requires manufacturers of products with digital elements to notify ENISA within 24 hours of discovering an actively exploited vulnerability or severe incident — more than a year ahead of the December 2027 date when full product-security obligations (secure-by-design, conformity assessments) apply. Organizations with hardware or embedded-software products sold in EU markets that have deferred CRA planning to 2027 should immediately determine whether their products trigger the September reporting obligation and build ENISA notification workflows before end of Q2.</p>
+      </div>
+    </section>
+
+    <section id="sec-cyber">
+      <h2>Cybersecurity &amp; Threats <span class="section-count">5 items</span></h2>
+      <div class="section-line"></div>
+
+      <div class="item">
+        <div class="item-meta"><span class="tag critical">CVSS 10.0 &middot; KEV</span><span>thehackernews.com</span></div>
+        <p class="item-headline"><a href="https://thehackernews.com/2026/05/cisa-adds-cisco-sd-wan-cve-2026-20182.html" target="_blank" rel="noopener">Cisco Catalyst SD-WAN CVE-2026-20182 (CVSS 10.0) — CISA KEV added May 16; federal remediation deadline is today; active scanning by UAT-8616 confirmed</a></p>
+        <p class="item-digest">An authentication bypass in Cisco Catalyst SD-WAN Controller allows an unauthenticated remote attacker to obtain full administrative access; CISA added it to the KEV catalog May 16 with a two-day federal remediation deadline of May 17 (today), and threat actor UAT-8616 has been systematically scanning for exposed instances discoverable via standard internet scanning. Organizations with internet-accessible SD-WAN Controllers that have not yet applied Cisco's patch should treat this as an emergency and validate remediation before end of business today.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-meta"><span class="tag critical">KEV</span><span>securityaffairs.com</span></div>
+        <p class="item-headline"><a href="https://securityaffairs.com/191281/security/u-s-cisa-adds-simplehelp-samsung-and-d-link-flaws-to-its-known-exploited-vulnerabilities-catalog.html" target="_blank" rel="noopener">CISA adds four flaws to KEV on May 15 — SimpleHelp privilege escalation (CVSS 9.9), Samsung MagicINFO path traversal, D-Link routers actively recruited into Mirai with no patch available</a></p>
+        <p class="item-digest">The May 15 KEV additions include CVE-2024-57726 (SimpleHelp, CVSS 9.9 — low-privileged technicians can create API keys to escalate to server admin), CVE-2024-7399 (Samsung MagicINFO 9 Server arbitrary file write enabling RCE), and CVE-2025-29635 (D-Link DIR-823X command injection — no vendor patch exists; Mirai operators are actively conscripting exposed devices). SimpleHelp and Samsung MagicINFO operators should patch immediately; D-Link DIR-823X owners face a network-isolate-or-replace decision with no remediation path from the vendor.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-meta"><span class="tag critical">Breach</span><span>malwarebytes.com</span></div>
+        <p class="item-headline"><a href="https://www.malwarebytes.com/blog/news/2026/05/millions-of-students-personal-data-stolen-in-major-education-cyberattack" target="_blank" rel="noopener">ShinyHunters Canvas LMS breach: 275 million records stolen from 8,809 institutions in the largest education breach on record</a></p>
+        <p class="item-digest">ShinyHunters compromised Instructure's Canvas LMS on May 1 and again on May 7, exfiltrating 3.65 TB of student, faculty, and staff data — including names, email addresses, student IDs, and private messages — across approximately 8,809 universities, K-12 systems, and educational ministries worldwide. Affected institutions should proceed with breach notification obligations regardless of any ransom payment status; FERPA-covered institutions face a 45-day notification clock and should assess whether the breach triggers mandatory state AG reporting under the 20 privacy statutes now in force.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-meta"><span class="tag">Ransomware</span><span>darkreading.com</span></div>
+        <p class="item-headline"><a href="https://www.darkreading.com/cyberattacks-data-breaches/extortion-gangs-join-forces-ransomware-cartel" target="_blank" rel="noopener">Qilin, DragonForce, and LockBit form strategic ransomware cartel — shared infrastructure, surgical EDR evasion upgrades; trio accounts for 21% of weekly global attack volume</a></p>
+        <p class="item-digest">Three of the most prolific ransomware operations formalized an alliance sharing tools, affiliate networks, and infrastructure; Qilin posted 338 victims in Q1 2026 (its third consecutive quarter as the most active group), while DragonForce's May 2026 operator communications announced a shift from driver-based EDR killing (BYOVD) to surgical userland evasion techniques that generate fewer detectable signals. Incident response teams should update detection playbooks for DragonForce's new evasion approach, since playbooks tuned exclusively for driver-level kill indicators will miss the updated delivery chain.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-meta"><span class="tag">KEV</span><span>thehackernews.com</span></div>
+        <p class="item-headline"><a href="https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html" target="_blank" rel="noopener">CISA adds Linux kernel CVE-2026-31431 to KEV — local privilege escalation to root via incorrect resource transfer; FCEB federal deadline was May 15</a></p>
+        <p class="item-digest">The actively exploited Linux kernel flaw allows an unprivileged local user to escalate to root via an incorrect resource transfer between protection domains (CWE-669); CISA added it May 1 with a federal civilian agency remediation deadline of May 15. Enterprise Linux administrators should verify patch deployment status across all supported distributions and confirm that cloud-hosted workloads on non-current kernel versions are covered by their provider's patch-and-migrate schedule — local privilege escalation vulnerabilities are a preferred post-exploitation pivot for ransomware operators who have already obtained initial access.</p>
+      </div>
+    </section>
+
+    <section id="sec-tech">
+      <h2>Tech &amp; AI <span class="section-count">4 items</span></h2>
+      <div class="section-line"></div>
+
+      <div class="item">
+        <div class="item-meta"><span class="tag">Model Release</span><span>anthropic.com</span></div>
+        <p class="item-headline"><a href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank" rel="noopener">Anthropic's Claude Opus 4.7 generally available across API, Bedrock, and Vertex AI — significant gains in complex software engineering; Mythos Preview remains restricted over safety concerns</a></p>
+        <p class="item-digest">Opus 4.7 (GA since April 16, priced at $5/$25 per million tokens, unchanged from Opus 4.6) delivers meaningful improvements in complex software engineering and vision tasks and is available across Claude.ai, the API, Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Foundry; Anthropic publicly confirmed that its more capable Mythos Preview model remains restricted to a handpicked group of tech and cybersecurity companies pending safety review. Enterprise security teams piloting AI-assisted code review or vulnerability research should note Opus 4.7 ships with safeguards that automatically detect and block requests indicating prohibited high-risk cybersecurity uses.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-meta"><span class="tag">Model Release</span><span>tech.yahoo.com</span></div>
+        <p class="item-headline"><a href="https://tech.yahoo.com/ai/gemini/articles/google-o-2026-were-expecting-193900765.html" target="_blank" rel="noopener">Google I/O opens Tuesday — Gemini 4.0 with 2M-token context, Gemini Spark cross-app autonomous agent, and Android XR glasses expected in keynote</a></p>
+        <p class="item-digest">Google's May 19 I/O keynote is expected to preview a new Gemini model with a 2-million-token context window — sufficient to ingest entire codebases or multi-year document archives in a single prompt — alongside Gemini Spark, an autonomous agent capable of executing complex multi-step tasks across Gmail, Docs, and Android apps without user intervention, and a public preview of Gemini-powered Android XR eyewear. Enterprise security and compliance teams planning Gemini Intelligence adoption should scope the permission model and data-residency controls for autonomous agents before organizational rollout; the cross-app access pattern introduces new data-handling governance questions.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-meta"><span class="tag advisory">Policy</span><span>cnn.com</span></div>
+        <p class="item-headline"><a href="https://www.cnn.com/2026/05/05/tech/microsoft-google-xai-government-test-ai-models" target="_blank" rel="noopener">Microsoft, Google, and xAI agree to pre-launch government AI testing — Commerce Dept.'s CAISI will assess frontier models for national security risks before public release</a></p>
+        <p class="item-digest">Three leading AI developers formalized agreements giving the U.S. Commerce Department's Center for AI Standards and Innovation advance access to evaluate frontier models for safety and national-security risks prior to deployment — a framework modeled loosely on pharmaceutical pre-market review. AI vendors pursuing federal contracts should anticipate that this pre-clearance model will become a procurement baseline, with downstream obligations for conformity-assessment documentation and export-control review of dual-use capabilities embedded in commercial model releases.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-meta"><span class="tag">Restructuring</span><span>thenextweb.com</span></div>
+        <p class="item-headline"><a href="https://thenextweb.com/news/meta-layoffs-8000-ai-restructuring-may-2026" target="_blank" rel="noopener">Meta begins 8,000-person layoff wave May 20 alongside $135B AI infrastructure commitment — the largest simultaneous workforce reduction and AI buildout in tech history</a></p>
+        <p class="item-digest">Meta's May 20 layoffs (approximately 10% of its global workforce, with further H2 2026 cuts planned) run in parallel with a $115–135B 2026 capital expenditure commitment — nearly double 2025 AI spending — including a $27B gigawatt-scale Louisiana AI campus; all business units are being reorganized into AI-focused "pods." The move mirrors concurrent Microsoft, Google, and Amazon capex and workforce realignments, signaling that frontier infrastructure investment has become the primary capital-allocation metric for large-cap tech and carries procurement, cloud pricing, and compliance implications for enterprise customers of all four platforms.</p>
+      </div>
+    </section>
+
+    <footer>
+      Refreshed automatically each weekday at 6:30 AM ET. Click the reload icon in the header to re-fetch.<br>
+      Sources include Krebs, BleepingComputer, The Hacker News, SecurityWeek, CISA, SEC, NIST, ISACA, IAPP, FAA, DoD, DDTC, tldr.tech, evolvingai.io, Techmeme, Fortune, CNBC.
+    </footer>
+
+  </div><!-- #view-brief -->
+
+  <div id="view-grc" style="display:none">
+    <div class="grc-unavailable">
+      <strong>GRC digest unavailable for today.</strong><br>
+      Check back after 7:00 AM ET or visit
+      <a href="https://daily-grc-digest.lovable.app" target="_blank" rel="noopener">daily-grc-digest.lovable.app</a> directly.
     </div>
+  </div><!-- #view-grc -->
 
-    <div class="item">
-      <div class="item-meta"><span class="tag deadline">SOX / PCAOB</span><span>pcaobus.org</span></div>
-      <p class="item-headline"><a href="https://pcaobus.org/oversight/standards/auditing-standards" target="_blank" rel="noopener">PCAOB issues AS 1000 conforming amendments — QC 1000, AS 2901, and amended AS 1215 all remain on track for December 15 deadline</a></p>
-      <p class="item-digest">The PCAOB's modernized standards suite — QC 1000 (firm-wide quality control), AS 2901 (post-issuance deficiency remediation), and amended AS 1215 (reducing documentation completion from 45 to 14 days) — takes effect December 15, 2026 following last year's one-year delay; the Board's new conforming amendments align legacy standards with the AS 1000 and QC 1000 frameworks and reinforce risk-based planning and supervision expectations. Audit committee chairs should assess whether their external auditors' implementation plans are on schedule before Q3 board meetings.</p>
-    </div>
+  <script>
+    function switchView(view) {
+      document.getElementById('view-brief').style.display = view === 'brief' ? 'block' : 'none';
+      document.getElementById('view-grc').style.display = view === 'grc' ? 'block' : 'none';
+      document.querySelectorAll('.toggle-btn').forEach(function(b) { b.classList.remove('active'); });
+      event.target.classList.add('active');
+    }
+  </script>
 
-    <div class="item">
-      <div class="item-meta"><span class="tag advisory">NIS2 / DORA</span><span>skadden.com</span></div>
-      <p class="item-headline"><a href="https://www.skadden.com/insights/publications/2026/03/european-commission-announces-potential-nis2-cybersecurity-reform" target="_blank" rel="noopener">EC's targeted NIS2 amendments harmonize Article 21 controls EU-wide and mandate post-quantum cryptography migration by 2030</a></p>
-      <p class="item-digest">The European Commission's January 2026 amendment package prevents member states from layering additional cybersecurity requirements beyond the harmonized Article 21 measures, reclassifies approximately 29,000 entities to lighter-touch supervision, and requires national strategies targeting post-quantum cryptography migration for critical use cases by 2030 and medium/low use cases by 2035. Multinationals should determine whether the reclassification changes their supervisory tier and update their Article 21 incident-notification workflows to match the harmonized standard rather than the national transposition they originally implemented against.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta"><span class="tag advisory">Aerospace QMS</span><span>quecon.com</span></div>
-      <p class="item-headline"><a href="https://www.quecon.com/latest/faa-to-embed-cyber-standards-in-aircraft-certification-by-2026/" target="_blank" rel="noopener">FAA finalizes IUEI cybersecurity rule — cyber risk assessment now a design-approval baseline for transport-category aircraft, engines, and propellers</a></p>
-      <p class="item-digest">The FAA's final rule codifies Intentional Unauthorized Electronic Interaction (IUEI) assessment as a mandatory element of type certification under Parts 25, 33, and 35, requiring applicants to systematically identify, assess, and mitigate cyber risks as part of the design approval process — replacing the prior ad-hoc special-conditions regime. Aerospace OEMs and Tier-1 suppliers should map the IUEI assessment requirements to their existing AS9100/IA9100 quality management plans and ensure alignment with ITAR/EAR data-handling controls for any cyber-relevant design documentation.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta"><span class="tag advisory">Privacy</span><span>quarles.com</span></div>
-      <p class="item-headline"><a href="https://www.quarles.com/newsroom/publications/state-privacy-enforcement-heats-up-key-actions-and-compliance-trends-every-business-needs-to-know" target="_blank" rel="noopener">U.S. state privacy enforcement at record pace — CPPA's Delete Act fines compound daily; Texas AG builds on $1B TDPSA precedent</a></p>
-      <p class="item-digest">California's Delete Act DROP platform began issuing compounding $200-per-day fines per unfulfilled deletion request on January 31, 2026, targeting registered data brokers; Texas's Attorney General is leveraging its landmark billion-dollar TDPSA enforcement settlement to establish a high-visibility deterrence baseline under the Texas Data Privacy and Security Act. With 20 state laws now in force and a bipartisan Consortium of Privacy Regulators sharing enforcement intelligence across state AGs, organizations relying on legal-review-only compliance approaches — without ongoing QA testing of opt-out mechanisms and privacy notice accuracy — face materially elevated enforcement risk.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta"><span class="tag deadline">EU CRA</span><span>cms-lawnow.com</span></div>
-      <p class="item-headline"><a href="https://cms-lawnow.com/en/ealerts/2026/02/strengthening-eu-cyber-resilience-an-overview-of-the-new-cybersecurity-package" target="_blank" rel="noopener">EU Cyber Resilience Act reporting obligations activate September 11, 2026 — product security teams have roughly 118 days to prepare</a></p>
-      <p class="item-digest">The CRA, in force since December 2024, requires manufacturers of products with digital elements to report actively exploited vulnerabilities and severe incidents to ENISA within 24 hours of discovery starting September 11, 2026 — a hard deadline that predates the broader December 2027 main-obligations effective date by over a year. Organizations selling hardware or embedded-software products into EU markets must have ENISA reporting workflows, incident classification criteria, and disclosure processes operational well before September; companies that have deferred CRA compliance planning to 2027 are now in breach risk.</p>
-    </div>
-  </section>
-
-  <section id="sec-cyber">
-    <h2>Cybersecurity &amp; Threats <span class="section-count">5 items</span></h2>
-    <div class="section-line"></div>
-
-    <div class="item">
-      <div class="item-meta"><span class="tag critical">CVSS 10.0 · KEV</span><span>thehackernews.com</span></div>
-      <p class="item-headline"><a href="https://thehackernews.com/2026/05/cisa-adds-cisco-sd-wan-cve-2026-20182.html" target="_blank" rel="noopener">Cisco Catalyst SD-WAN CVE-2026-20182 (CVSS 10.0) added to CISA KEV on May 15 — federal deadline May 17, active exploitation confirmed</a></p>
-      <p class="item-digest">An authentication bypass in Cisco Catalyst SD-WAN Controller allows unauthenticated remote attackers to gain full administrative access; CISA added it to the KEV catalog on May 15 with a two-day federal remediation deadline of May 17. Threat actor UAT-8616 has been systematically scanning for exposed instances — organizations running Cisco SD-WAN that have not yet patched or network-isolated their controllers should treat this as a weekend emergency, as the attack surface is trivially discoverable via internet scanning.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta"><span class="tag critical">Zero-day</span><span>bleepingcomputer.com</span></div>
-      <p class="item-headline"><a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-warns-of-exchange-zero-day-flaw-exploited-in-attacks/" target="_blank" rel="noopener">Microsoft Exchange CVE-2026-42897 XSS zero-day actively exploited — no patch available; Emergency Mitigation Service M2 is interim control</a></p>
-      <p class="item-digest">A spoofing and cross-site scripting flaw (CVSS 8.1) in on-premises Exchange Server SE, 2016, and 2019 allows a single crafted email to execute arbitrary JavaScript in Outlook Web Access when opened by the target — no patch is yet available. Microsoft has activated the M2 mitigation automatically via its Exchange Emergency Mitigation Service; administrators should immediately verify EEMS is enabled and confirm that Exchange servers are not internet-accessible without authentication.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta"><span class="tag critical">Breach</span><span>malwarebytes.com</span></div>
-      <p class="item-headline"><a href="https://www.malwarebytes.com/blog/news/2026/05/millions-of-students-personal-data-stolen-in-major-education-cyberattack" target="_blank" rel="noopener">ShinyHunters Canvas breach: 275M users across 8,800+ institutions — largest education breach on record, 3.65 TB exfiltrated</a></p>
-      <p class="item-digest">ShinyHunters compromised Canvas LMS (Instructure) on May 1 and again on May 7, exfiltrating 3.65 TB of student, faculty, and staff data — names, emails, student IDs, and private messages — from approximately 8,809 universities, educational ministries, and institutions globally. Affected institutions should assume data is in circulation regardless of any ransom payment and proceed immediately with breach notification obligations; institutions that received FERPA-covered student data should engage legal counsel on their 45-day FERPA breach notification obligations.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta"><span class="tag">OT/ICS</span><span>ic3.gov</span></div>
-      <p class="item-headline"><a href="https://www.ic3.gov/CSA/2026/260407.pdf" target="_blank" rel="noopener">Six-agency advisory: Iranian-affiliated actors living-off-the-land with Rockwell engineering software to disrupt PLCs in energy, water, and government</a></p>
-      <p class="item-digest">A joint advisory from FBI, CISA, NSA, and three partner agencies confirmed that an Iranian-linked cluster has been tampering with internet-facing Rockwell Automation PLCs since at least March 2026 using legitimate vendor engineering software to modify PLC project files — a living-off-the-land technique that leaves minimal traditional malware signatures. Critical infrastructure operators should inventory all internet-exposed OT assets immediately, enforce strict engineering workstation access controls, and implement integrity monitoring for PLC project files and configuration backups.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta"><span class="tag">OT/ICS</span><span>industrialcyber.co</span></div>
-      <p class="item-headline"><a href="https://industrialcyber.co/threats-attacks/forescout-flags-spike-in-high-severity-ot-ics-flaws-exposing-visibility-gaps-that-leave-critical-infrastructure-at-risk/" target="_blank" rel="noopener">Forescout: ICS vulnerabilities hit all-time record in 2025 — 2,155 CVEs across 508 advisories; 82% high or critical, CISA tracking only 22%</a></p>
-      <p class="item-digest">Forescout's analysis found 2025 set new highs for ICS cybersecurity risk with 508 CISA advisories covering 2,155 vulnerabilities — 82% rated high or critical severity — while CISA's ICS Advisory (ICSA) coverage dropped to only 22% of published CVEs (down from 58% in 2024), leaving significant blind spots for asset owners relying solely on ICSA alerts. The most affected assets are Purdue Level 1 field controllers, PLCs, RTUs, and IEDs; ICS vulnerability management programs should add vendor-direct and NVD feeds rather than relying exclusively on CISA ICSA coverage.</p>
-    </div>
-  </section>
-
-  <section id="sec-tech">
-    <h2>Tech &amp; AI <span class="section-count">4 items</span></h2>
-    <div class="section-line"></div>
-
-    <div class="item">
-      <div class="item-meta"><span class="tag">Model Release</span><span>tech.yahoo.com</span></div>
-      <p class="item-headline"><a href="https://tech.yahoo.com/ai/gemini/articles/google-o-2026-were-expecting-193900765.html" target="_blank" rel="noopener">Google I/O opens Tuesday — Gemini 4.0, autonomous Gemini Spark cross-app agent, and Android XR glasses expected</a></p>
-      <p class="item-digest">Google's annual developer conference runs May 19 with expected announcements including a new Gemini 4.0 model (positioned near GPT-5.5 class rather than a frontier breakthrough), a leaked Gemini Spark autonomous agent capable of executing multi-step tasks across Gmail, Docs, and Android apps without user intervention, and a first public preview of Gemini-powered Android XR glasses. Enterprise security teams evaluating Gemini Intelligence deployment should begin reviewing permission model and data-access scope for autonomous agents before organizational rollout.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta"><span class="tag">Restructuring</span><span>thenextweb.com</span></div>
-      <p class="item-headline"><a href="https://thenextweb.com/news/meta-layoffs-8000-ai-restructuring-may-2026" target="_blank" rel="noopener">Meta's 8,000 layoffs begin May 20 as $135B AI capital plan reshapes every business unit into AI-focused "pods"</a></p>
-      <p class="item-digest">Meta begins companywide layoffs on May 20, cutting approximately 8,000 employees (10% of its workforce) with additional H2 2026 cuts planned, while simultaneously committing $115–135B in 2026 AI capital expenditure — nearly double 2025 levels — to data centers, GPUs, and Llama infrastructure, including a $27B joint-venture gigawatt-scale AI campus in Louisiana. The restructuring, occurring against record $201B 2025 revenue, signals that frontier AI infrastructure investment has become the primary capital allocation priority industry-wide, a dynamic echoed by Microsoft, Google, and Amazon's concurrent workforce and capex moves.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta"><span class="tag advisory">Policy</span><span>cnbc.com</span></div>
-      <p class="item-headline"><a href="https://www.cnbc.com/2026/05/11/openai-eu-cyber-model-anthropic-mythos-gpt.html" target="_blank" rel="noopener">OpenAI grants EU vetted security teams limited access to GPT-5.5-Cyber; Anthropic's Mythos model restricted to U.S. actors</a></p>
-      <p class="item-digest">OpenAI is extending a limited preview of GPT-5.5-Cyber — a security-optimized model variant — to vetted EU cybersecurity teams, while Anthropic continues restricting its forthcoming Mythos model to U.S.-based actors, creating a bifurcated access landscape for frontier AI security tooling. The divergence signals an emerging category of AI product subject to export-control-style access controls, which enterprise security teams with cross-jurisdictional operations should begin factoring into their AI tool procurement and governance frameworks.</p>
-    </div>
-
-    <div class="item">
-      <div class="item-meta"><span class="tag advisory">Policy</span><span>fladgate.com</span></div>
-      <p class="item-headline"><a href="https://www.fladgate.com/insights/ai-round-up-may-2026" target="_blank" rel="noopener">EU AI Act high-risk obligations delayed to December 2027; Pentagon simultaneously deploys AI from seven vendors on classified networks</a></p>
-      <p class="item-digest">The European Parliament adopted amendments pushing high-risk AI system compliance requirements back one year to December 2, 2027, giving enterprises additional runway for conformity assessments. Simultaneously, the Pentagon finalized deployment agreements with Google, OpenAI, Microsoft, AWS, Nvidia, SpaceX, and Reflection AI for classified military networks — a signal that government AI adoption is accelerating well ahead of civilian regulatory frameworks, with downstream implications for security, data-handling, and compliance requirements for AI vendors seeking federal contracts.</p>
-    </div>
-  </section>
-
-  <footer>
-    Refreshed automatically each weekday at 6:30 AM ET. Click the reload icon in the header to re-fetch.<br>
-    Sources include Krebs, BleepingComputer, The Hacker News, SecurityWeek, CISA, SEC, NIST, ISACA, IAPP, FAA, DoD, DDTC, tldr.tech, evolvingai.io, Techmeme, Fortune, CNBC.
-  </footer>
 </div>
 </body>
 </html>
